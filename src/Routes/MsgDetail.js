@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import MessageLink from '../Components/MessageLink';
 
 const Container = styled.div`
     margin-top: 100px;
@@ -18,12 +17,7 @@ class App extends React.Component {
     render() {
         return(
             <Container>
-                <Title>✉</Title>
-                <MessageLink />
-                <MessageLink />
-                <MessageLink />
-                <MessageLink />
-                <MessageLink />
+                <Title>Message Detail</Title>
             </Container>
         );
     }

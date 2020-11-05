@@ -12,17 +12,18 @@ const Container = styled.div`
     box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.2);
 `;
 
-const PostContainer = styled.div`
+const PostContainer = styled(Link)`
     display: flex;
     flex-direction: column;
     width: 100%;
     position: relative;
+    text-decoration: none;
+    color: #614638;
 `;
 
 const Image = styled.div`
     width: 100%;
     height: 200px;
-    // height: 60vh;
     background-color: #FDECE3;
 `;
 
@@ -49,7 +50,7 @@ const Like = styled.span`
 
 export default() => (
     <Container>
-        <PostContainer>
+        <PostContainer to="/detail">
             <Image></Image>
             <Title>제목</Title>
             <Content></Content>

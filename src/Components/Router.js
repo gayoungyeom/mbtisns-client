@@ -8,6 +8,7 @@ import All from '../Routes/All';
 import Detail from '../Routes/Detail';
 import CreatePost from '../Routes/CreatePost';
 import Message from '../Routes/Message';
+import MsgDetail from '../Routes/MsgDetail';
 import Header from './Header';
 
 export default() => (
@@ -23,6 +24,7 @@ export default() => (
             <Route path="/detail" component={Detail} />
             <Route path="/create" component={CreatePost} />
             <Route path="/message" component={Message} />
+            <Route path="/msgdetail" component={MsgDetail} />
             <Redirect from="*" to="/" />
         </Switch>
         </>

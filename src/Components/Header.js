@@ -41,7 +41,7 @@ export default() => (
     <Header>
         <List>
             <Item>
-                <LLink to="/">MBTI SNS</LLink>
+                <LLink to="/mbti">MBTI SNS</LLink>
                 <RLink>
                     {/* 로그아웃 상태 */}
                     <LLink to="/login">Login</LLink>
