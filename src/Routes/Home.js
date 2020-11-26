@@ -9,7 +9,7 @@ const Container = styled.div`
 
 const IntroContainer = styled.div`
     background-color: #FDECE3;
-    height: 35vh;
+    height: 280px;
     text-align: center;
 `;
 
@@ -17,7 +17,7 @@ const Title = styled.div`
     color: #614638;
     font-size: 38px;
     font-weight: bold;
-    padding-top: 50px;
+    padding-top: 60px;
 `;
 
 const Intro = styled.div`
