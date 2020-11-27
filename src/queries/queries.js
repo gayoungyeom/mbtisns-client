@@ -42,3 +42,24 @@ export const SIGN_IN = gql`
         }
     }
 `;
+
+export const SIGN_UP = gql`
+    mutation signup($firstName: String!, $lastName: String!, $email: String!, $password: String!, 
+    $phoneNumber: String!, $mbtiType: String!, $isVerified: Boolean!, $nickName: String, $gender: Boolean){
+        signup(
+            firstName: $firstName, 
+            lastName: $lastName,
+            email: $email,
+            password: $password,
+            phoneNumber: $phoneNumber,
+            mbtiType: $mbtiType,
+            isVerified: $isVerified,
+            nickName: $nickName,
+            gender: $gender
+        ){
+            ok
+            token
+            error
+        }
+    }
+`;
