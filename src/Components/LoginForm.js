@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Redirect } from 'react-router-dom';
 
 import { useMutation, useQuery } from '@apollo/client';
 import { GET_USER, SIGN_IN } from '../queries/queries';
 
 const Container = styled.div`
-    margin-top: 21vh;
+    // margin-top: 21vh;
+    margin-top: 140px;
     text-align: center;
 `;
 
@@ -26,7 +28,7 @@ const Input = styled.input`
     display: block;
     margin: 0 auto;
     text-align: left;
-    margin-top: 4vh;
+    margin-top: 35px;
     font-size: 16px;
     :focus{
         outline: none;
@@ -34,7 +36,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-    margin-top: 5vh;
+    margin-top: 30px;
     color: #614638;
     background-color: white;
     border-radius: 5px;
@@ -48,12 +50,14 @@ const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [isUpdated, setIsUpdated] = useState(false);
+    // const [firstName, setFirstName] = useState('');
+    // const [lastName, setLastName] = useState('');
+    // const [isUpdated, setIsUpdated] = useState(false);
     
-    const {data: getUserData, loading: getUserLoading, error: getUserError} = useQuery(GET_USER, {variables: {id: 1}});
-    
+    const [succeedLogIn, setSucceedLogIn] = useState(false);
+    const [userid, setUserId] = useState('');
+    const [usermbti, setUserMbti] = useState('');
+
     const [signin, {data, loading, error}] = useMutation(SIGN_IN)
     
     const onLogInBtnClick = () => {
@@ -63,26 +67,36 @@ const LoginForm = () => {
             console.log(data);
             
             if(data && data.signin && data.signin.ok) { //로그인 성공
-                window.open('http://naver.com');
-                return;
+                setUserId(data.signin.user.id);
+                setUserMbti(data.signin.user.mbtiType);
+                setSucceedLogIn(true);
+                console.log("로그인 성공");
+                return;       
             } else{
                 alert("로그인 실패");
             }
         });    
     };
 
-    if (getUserLoading || getUserError) return <div>loading...</div>;
-
-    if(getUserData.getUser.ok) {
-        const { user: getUserProfile } = getUserData.getUser;
-        // console.log(getUserProfile);
-        if(!isUpdated) {
-            setIsUpdated(true);
-            setFirstName(getUserProfile.firstName);
-            setLastName(getUserProfile.lastName);
-        }
+    if(succeedLogIn) {
+        // return <Redirect to={`/mbti/${userid}`} />
+        return <Redirect to={`/mbti/${usermbti}`} />
     }
+    
+    // const userID = data.signin.user.id;
+    // const {data: getUserData, loading: getUserLoading, error: getUserError} = useQuery(GET_USER, {variables: {id: 1}});
+    // if (getUserLoading || getUserError) return <div>loading...</div>;
 
+    // if(getUserData.getUser.ok) {
+    //     const { user: getUserProfile } = getUserData.getUser;
+    //     // console.log(getUserProfile);
+    //     if(!isUpdated) {
+    //         setIsUpdated(true);
+    //         setFirstName(getUserProfile.firstName);
+    //         setLastName(getUserProfile.lastName);
+    //     }
+    // }
+    
     return(
         <Container>
         <Title>Log In</Title>

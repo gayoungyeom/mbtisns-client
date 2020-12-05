@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -63,11 +63,11 @@ const Dm = styled(Link)`
     text-align: center;
 `;
 
-export default withRouter(({to}) => (
+export default withRouter(({mbtiType}) => (
     <Container>
         <List>
             {/* 유저 mbti 타입 가져오기 */}
-            <SLink to="/mbti">ISTJ</SLink>
+            <SLink to="/mbti">{ mbtiType ? mbtiType : "MBTI" }</SLink>
             <Stick>|</Stick>
             <SLink to="/all">All</SLink>
         </List>

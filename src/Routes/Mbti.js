@@ -10,9 +10,12 @@ const Container = styled.div`
 
 class App extends React.Component {
     render() {
+        // console.log(this.props);
+        const mbtiType = this.props.location.pathname.slice(-4);
+        console.log(mbtiType);
         return(
             <>
-            <BoardNav />
+            <BoardNav mbtiType={ mbtiType }/>
             <Container>
                 <Poster />
                 <Poster />

@@ -5,7 +5,8 @@ import { useMutation } from '@apollo/client';
 import { SIGN_UP } from '../queries/queries';
 
 const Container = styled.div`
-    margin-top: 21vh;
+    // margin-top: 21vh;
+    margin-top: 140px;
     text-align: center;
 `;
 
@@ -26,7 +27,7 @@ const Input = styled.input`
     display: block;
     margin: 0 auto;
     text-align: left;
-    margin-top: 3vh;
+    margin-top: 25px;
     font-size: 16px;
     :focus{
         outline: none;
@@ -34,7 +35,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-    margin-top: 5vh;
+    margin-top: 35px;
     color: #614638;
     background-color: white;
     border-radius: 5px;
